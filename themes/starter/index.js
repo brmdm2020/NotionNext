@@ -24,6 +24,7 @@ import { Testimonials } from './components/Testimonials'
 import CONFIG from './config'
 import { Style } from './style'
 // import { MadeWithButton } from './components/MadeWithButton'
+import Comment from '@/components/Comment'
 import ShareBar from '@/components/ShareBar'
 import { useGlobal } from '@/lib/global'
 import { loadWowJS } from '@/lib/plugins/wow'
@@ -84,6 +85,8 @@ const LayoutIndex = props => {
     <>
       {/* 英雄区 */}
       {siteConfig('STARTER_HERO_ENABLE') && <Hero />}
+      {/* 合作伙伴 */}
+      {siteConfig('STARTER_BRANDS_ENABLE') && <Brand />}
       {/* 产品特性 */}
       {siteConfig('STARTER_FEATURE_ENABLE') && <Features />}
       {/* 关于 */}
@@ -110,8 +113,7 @@ const LayoutIndex = props => {
       )}
       {/* 联系方式 */}
       {siteConfig('STARTER_CONTACT_ENABLE') && <Contact />}
-      {/* 合作伙伴 */}
-      {siteConfig('STARTER_BRANDS_ENABLE') && <Brand />}
+
       {/* 行动呼吁 */}
       {siteConfig('STARTER_CTA_ENABLE') && <CTA />}
     </>
@@ -153,6 +155,7 @@ const LayoutSlug = props => {
           <div id='container-inner' className='w-full p-4'>
             <div id='article-wrapper' className='mx-auto'>
               <NotionPage {...props} />
+              <Comment frontMatter={post} />
               <ShareBar post={post} />
             </div>
           </div>
